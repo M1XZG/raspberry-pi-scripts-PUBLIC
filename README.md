@@ -1,10 +1,6 @@
 # Rob's Raspberry Pi Scripts
 
-=======
-
 The scripts found in this repo are a collection of scripts I've created from scratch as well as heavily modified ones from other sources.  Where possible I've included all the links to originals and given full credit when possible.
-
-=======
 
 ##dht22-templogger
 
