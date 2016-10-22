@@ -8,8 +8,8 @@ The BerryClip is a simple, cheap and easy to use add-on board for the Raspberry 
 
 See the README.md in the BerryClip-Script folder for more info
 
-##dht22-templogger
+##DHT22-Templogger
 
 This script does a number of things for me, using a DHT22 sensor connected to the RPi it will collect the temperature and humidity from the sensor as well as the temperature of the RPi board from it's onboard temperature sensor.  This data is then sent to https://thingspeak.com to the data is charted.
 
-See the README.md in the dht22-templogger folder for more info
+See the README.md in the DHT22-Templogger folder for more info
