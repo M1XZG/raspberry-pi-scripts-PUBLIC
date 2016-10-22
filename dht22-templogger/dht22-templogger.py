@@ -20,6 +20,8 @@ import RPi.GPIO as GPIO
 import urllib2
 import os
 
+# Insert here way to handle the use of the TP-LINK HS100/HS110 switches
+
 # Get the date
 
 today = datetime.date.today()
@@ -53,8 +55,6 @@ while 1:
         #print "---------------------------------------"
         import subprocess
         boardtemp = subprocess.check_output("/usr/local/bin/get-pitemp.sh", shell=True)
-	#dehumidpwr = subprocess.check_output("/usr/local/bin/hs100-check.sh 172.16.29.146", shell=True)
-	dehumidpwr = subprocess.check_output("/usr/local/bin/hs100.sh 172.16.29.146 9999 check", shell=True)
 
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 	if temperature is not None:
@@ -62,7 +62,8 @@ while 1:
 	if humidity is not None:
 		    humidity = '{:.2f}'.format(humidity)
 
-        desturl = baseURL + "&field1={0}&field2={1}&field3={2}&field4={3}".format(temperature,humidity,boardtemp,dehumidpwr)
+        desturl = baseURL + "&field1={0}&field2={1}&field3={2}".format(temperature,humidity,boardtemp)
+
         f = urllib2.urlopen(desturl)
         f.close()
 
@@ -72,7 +73,6 @@ while 1:
         #print temperature
         #print humidity
 	#print boardtemp
-	#print dehumidpwr
 
 # The sys.exit is used if you want to call the script from CRON or just casually, if you want to run this continuously in the
 # background maybe through SCREEN or just nohup, then comment out the sys.exit line and uncomment the time.sleep line, the 120
