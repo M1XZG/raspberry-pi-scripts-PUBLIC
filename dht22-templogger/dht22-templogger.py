@@ -2,33 +2,44 @@
 
 # HEADER
 ###################################################################################################
+#
 # Author        : Robert McKenzie <rmckenzi@rpmdp.com>
 # Script Name   : dht22-templogger.py
 # Description   : This python script will collect temp and humidity from dht22 and cpu temp from
 #                 the PI motherboard and feed this data back to http://thingspeak.com
 #
-#                 This script was adapted from <find the source>
-#
 ###################################################################################################
 
-import datetime
-today = datetime.date.today()
+# Imports
 
+import datetime
 import time
 import sys
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 import urllib2
-
 import os
-myhost = os.uname()[1]
 
-if myhost == "pi1":
-	myAPI = "O5S8WAQNHI32385I"
-elif myhost == "pi2":
-	myAPI = "BTCAFXK3I30GI3Y0"
-elif myhost == "pi3":
-	myAPI = ""
+# Get the date
+
+today = datetime.date.today()
+
+# If you only use this script on ONE Raspberry Pi then define your ThingSpeak API Key below, otherwise, comment this out and
+# see the next section
+
+myAPI = "<API KEYHERE>"
+
+# I use the same script on multiple raspberry pi's, these require different thingspeak.com channels, define your API's here
+# If you use more than one Raspberry Pi you can uncomment the section below, change your Pi's hostnames and add the various
+# API Keys for your different channels that relate to the seperate Pi's.
+
+#myhost = os.uname()[1]
+#if myhost == "pi1":
+#	myAPI = "<API KEY HERE>"
+#elif myhost == "pi2":
+#	myAPI = "<API KEY HERE>"
+#elif myhost == "pi3":
+#	myAPI = "<API KEY HERE>"
 
 
 sensor = Adafruit_DHT.DHT22
@@ -63,8 +74,13 @@ while 1:
 	#print boardtemp
 	#print dehumidpwr
 
+# The sys.exit is used if you want to call the script from CRON or just casually, if you want to run this continuously in the
+# background maybe through SCREEN or just nohup, then comment out the sys.exit line and uncomment the time.sleep line, the 120
+# is the number of seconds the script will sleep before looping back through the data collection and posting again.  I call
+# mine through cron using
+#
+# */2 * * * /path/to/dht22-templogger.py
+
         sys.exit(0)
-
-
 	#time.sleep(120)
 
