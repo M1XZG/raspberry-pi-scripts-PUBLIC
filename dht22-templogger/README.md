@@ -18,13 +18,13 @@ myAPI = "<API KEY HERE>"
 If you use multiple Pi's, comment that line out and uncomment section below that and change the hostnames and API Key's for each host.  You can easily delete and add more elif lines as you see fit.   Change the hostname to what you get from 'uname -n', and put in the key.
 
 ```python
-#myhost = os.uname()[1]
-#if myhost == "<HOST 1>":
-#	myAPI = "<API KEY HERE>"
-#elif myhost == "<HOST 2>":
-#	myAPI = "<API KEY HERE>"
-#elif myhost == "<HOST 3>":
-#	myAPI = "<API KEY HERE>"
+myhost = os.uname()[1]
+if myhost == "<HOST 1>":
+	myAPI = "<API KEY HERE>"
+elif myhost == "<HOST 2>":
+	myAPI = "<API KEY HERE>"
+elif myhost == "<HOST 3>":
+	myAPI = "<API KEY HERE>"
 ```
 
 One other modification you may require will be in this line
