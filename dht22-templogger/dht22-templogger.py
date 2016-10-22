@@ -27,7 +27,7 @@ today = datetime.date.today()
 # If you only use this script on ONE Raspberry Pi then define your ThingSpeak API Key below, otherwise, comment this out and
 # see the next section
 
-myAPI = "<API KEYHERE>"
+myAPI = "<API KEY HERE>"
 
 # I use the same script on multiple raspberry pi's, these require different thingspeak.com channels, define your API's here
 # If you use more than one Raspberry Pi you can uncomment the section below, change your Pi's hostnames and add the various
