@@ -34,11 +34,11 @@ myAPI = "<API KEY HERE>"
 # API Keys for your different channels that relate to the seperate Pi's.
 
 #myhost = os.uname()[1]
-#if myhost == "pi1":
+#if myhost == "<HOST 1>":
 #	myAPI = "<API KEY HERE>"
-#elif myhost == "pi2":
+#elif myhost == "<HOST 2>":
 #	myAPI = "<API KEY HERE>"
-#elif myhost == "pi3":
+#elif myhost == "<HOST 3>":
 #	myAPI = "<API KEY HERE>"
 
 
